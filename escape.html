@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Uber Clone</title>
+  <style>
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f4f4;
+    }
+
+    nav {
+      background: #000;
+      color: #fff;
+      padding: 1rem 1.5rem;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.2rem;
+    }
+
+    .menu-toggle {
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      color: white;
+      cursor: pointer;
+      z-index: 101;
+      margin-left: auto;
+    }
+
+    .menu-icon,
+    .close-icon {
+      display: inline-block;
+    }
+
+    .close-icon {
+      display: none;
+    }
+
+    .nav-open .menu-icon {
+      display: none;
+    }
+
+    .nav-open .close-icon {
+      display: inline-block;
+    }
+
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      background: #000;
+      position: absolute;
+      top: 100%;
+      right: 0;
+      width: 100%;
+      padding: 1rem;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+      padding: 0.5rem 0;
+    }
+
+    .nav-open .nav-links {
+      display: flex;
+    }
+
+    section {
+      padding: 5rem 1rem 3rem;
+    }
+
+    header.hero {
+      background: linear-gradient(135deg, #fff, #eee);
+      text-align: center;
+      padding-top: 6rem;
+    }
+
+    .location-inputs {
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+      width: 90%;
+      max-width: 400px;
+      margin: 1rem auto;
+    }
+
+    .location-inputs input,
+    .location-inputs button {
+      padding: 0.8rem;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+
+    .location-inputs button {
+      background: #000;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .ride-options {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      align-items: center;
+    }
+
+    .ride-card {
+      background: #fafafa;
+      width: 90%;
+      max-width: 300px;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      text-align: center;
+      padding: 1rem;
+      transition: transform 0.3s ease;
+    }
+
+    .ride-card:hover {
+      transform: scale(1.05);
+    }
+
+    .ride-card img {
+      width: 60px;
+      margin-bottom: 0.5rem;
+    }
+
+    .status-section {
+      background: #f9f9f9;
+      text-align: center;
+    }
+
+    #rideStatus {
+      font-size: 1.2rem;
+      margin-top: 1rem;
+      min-height: 3rem;
+    }
+
+    .testimonials {
+      background: #222;
+      color: white;
+      text-align: center;
+    }
+
+    .testimonial {
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      font-style: italic;
+    }
+
+    footer {
+      background: #000;
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    @media (min-width: 768px) {
+      .menu-toggle {
+        display: none;
+      }
+
+      .nav-links {
+        display: flex !important;
+        flex-direction: row;
+        position: static;
+        background: none;
+        width: auto;
+        padding: 0;
+        margin-left: auto;
+        gap: 2rem;
+      }
+
+      .nav-links a {
+        padding: 0;
+      }
+
+      .ride-options {
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="navbar">
+    <div class="logo">Uber Clone</div>
+    <button class="menu-toggle" onclick="toggleMenu()">
+      <span class="menu-icon">☰</span>
+      <span class="close-icon">✖</span>
+    </button>
+    <div class="nav-links" id="navLinks">
+      <a href="#hero" onclick="closeMenu()">Home</a>
+      <a href="#options" onclick="closeMenu()">Rides</a>
+      <a href="#status" onclick="closeMenu()">Status</a>
+      <a href="#testimonials" onclick="closeMenu()">Reviews</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header id="hero" class="hero">
+    <h1>Get a ride in minutes</h1>
+    <div class="location-inputs">
+      <input type="text" id="pickup" placeholder="Pickup Location" />
+      <input type="text" id="drop" placeholder="Drop Location" />
+      <button onclick="findRide()">Find Ride</button>
+    </div>
+  </header>
+
+  <!-- Ride Options -->
+  <section id="options" class="ride-options">
+    <div class="ride-card">
+      <img src="https://img.icons8.com/ios-filled/100/car--v1.png" />
+      <h3>UberX</h3>
+      <p>Affordable everyday rides</p>
+    </div>
+    <div class="ride-card">
+      <img src="https://img.icons8.com/ios-filled/100/suv.png" />
+      <h3>UberXL</h3>
+      <p>More space, more comfort</p>
+    </div>
+    <div class="ride-card">
+      <img src="https://img.icons8.com/ios-filled/100/taxi.png" />
+      <h3>Comfort</h3>
+      <p>Premium experience</p>
+    </div>
+  </section>
+
+  <!-- Status Section -->
+  <section id="status" class="status-section">
+    <h2>Ride Status</h2>
+    <div id="rideStatus">No ride in progress.</div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="testimonials" class="testimonials">
+    <h2>What Riders Say</h2>
+    <div class="testimonial">"Uber Clone is so smooth, I thought it was real!" – Alex</div>
+    <div class="testimonial">"Great design, awesome animations." – Jamie</div>
+    <div class="testimonial">"Loved the ride simulation. Felt real!" – Chris</div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    © 2025 Uber Clone — Made with ❤️
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById("navbar");
+      nav.classList.toggle("nav-open");
+    }
+
+    function closeMenu() {
+      const nav = document.getElementById("navbar");
+      nav.classList.remove("nav-open");
+    }
+
+    function findRide() {
+      const pickup = document.getElementById("pickup").value.trim();
+      const drop = document.getElementById("drop").value.trim();
+      const statusDiv = document.getElementById("rideStatus");
+
+      if (!pickup || !drop) {
+        alert("Please enter both pickup and drop locations.");
+        return;
+      }
+
+      statusDiv.textContent = `Looking for drivers from ${pickup} to ${drop}... 🚕`;
+
+      setTimeout(() => {
+        statusDiv.textContent = "Driver found! 🧍‍♂️ Arriving in 3 mins...";
+        setTimeout(() => {
+          statusDiv.textContent = "You're on your way! Estimated arrival: 10 mins 🚗";
+        }, 3000);
+      }, 2000);
+
+      document.getElementById("status").scrollIntoView({ behavior: "smooth" });
+    }
+  </script>
+
+</body>
+</html>

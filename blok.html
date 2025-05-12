@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pro Makeup One-on-One Mastercourse – Toronto</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background-color: #fffafc;
+      color: #333;
+      line-height: 1.6;
+      padding: 0;
+    }
+
+    header {
+      background: #fff0f6;
+      padding: 60px 20px 30px;
+      text-align: center;
+      position: relative;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      color: #cc147a;
+      margin-bottom: 15px;
+      animation: fadeInDown 1s ease-in-out;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 10px auto;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    .cta, .footer-cta button {
+      background: #cc147a;
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 25px;
+      font-size: 1rem;
+      margin-top: 20px;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .cta:hover, .footer-cta button:hover {
+      background-color: #a40e64;
+      transform: scale(1.05);
+    }
+
+    nav {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background: #cc147a;
+      margin: 4px 0;
+      transition: 0.4s;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #cc147a;
+      font-weight: bold;
+    }
+
+    section {
+      padding: 40px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .section-title {
+      color: #cc147a;
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #fcd6e8;
+      display: inline-block;
+      padding-bottom: 5px;
+    }
+
+    ul {
+      list-style-type: "🎯 ";
+      margin-left: 20px;
+    }
+
+    .highlight {
+      background: #fff0f6;
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 20px;
+      box-shadow: 0 0 0 transparent;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .highlight:hover {
+      box-shadow: 0 8px 16px rgba(204, 20, 122, 0.2);
+    }
+
+     .profile {
+      margin: 30px auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+  
+    .profile img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid #cc147a;
+      transition: transform 0.7s ease;
+    }
+  
+    .profile img:hover {
+      transform: scale(1.1);
+    }
+  
+    .profile-info {
+      font-size: 1rem;
+      max-width: 400px;
+    }
+  
+    .footer-cta {
+      background: #cc147a;
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+      margin-top: 40px;
+      border-radius: 20px;
+      transition: transform 0.3s ease;
+    }
+
+    .footer-cta:hover {
+      transform: translateY(-3px);
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 230px;
+      object-fit: cover;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @media(max-width: 768px) {
+      .hamburger {
+        display: flex;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background: #fff0f6;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        border-radius: 10px;
+        padding: 10px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+    }
+  </style>
+</head>
+<body>
+  
+  <header>
+    <h1>🌟 PRO MAKEUP ONE-ON-ONE MASTERCOURSE – TORONTO</h1>
+    <p>Each class costs less than your Sephora haul - but teaches you how to use all those products.<br>
+    No experience? No problem. Start your pro makeup journey here. <strong>June 21–26</strong></p>
+    <button class="cta">ENROL NOW</button>
+    <p>Transform your passion into a profession. This 6-day intensive course is perfect for beginners in Toronto looking to step into the world of professional makeup artistry.</p>
+  </header>
+
+  <section id="learn">
+    <h2 class="section-title">What You’ll Learn</h2>
+    <ul>
+      <li>Signature Soft Glam makeup look</li>
+      <li>Bridal Makeup (Soft + Traditional)</li>
+      <li>Cocktail & Reception Glam</li>
+      <li>Colorful Mehendi Look</li>
+      <li>Mature Skin Techniques</li>
+      <li>Bonus: Lighting, Photography, & Social Media for Makeup Artists</li>
+    </ul>
+
+    <div class="profile">
+      <img src="https://www.thelist.com/img/gallery/the-drugstore-powder-that-celebrity-makeup-artists-swear-by/l-intro-1622135749.jpg" alt="Makeup Artist" class="makeup"/>
+      <div class="profile-info">
+        <h3>Subtle Glam Artist</h3>
+        <p>💄 4+ years of bridal experience<br>
+        💕 500+ beautiful faces dolled<br>
+        🌍 International makeup artist<br>
+        🎓 Certified by IPGlitz & Leena Bhushan</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <h2 class="section-title">💁‍♀️ Services Offered</h2>
+    <ul>
+      <li>Bridal & Party Makeup</li>
+      <li>Makeup Trial Sessions</li>
+      <li>Product Recommendations & Kit Setup</li>
+      <li>1-on-1 Personalized Makeup Coaching</li>
+    </ul>
+  </section>
+
+  <section class="highlight" id="details">
+    <h2 class="section-title">📅 Course Details</h2>
+    <p><strong>Duration:</strong> 6 Days</p>
+    <p><strong>Timings:</strong> 8 Hours Daily</p>
+    <p><strong>Dates:</strong> June 21 – June 26</p>
+    <p><strong>Location:</strong> Mississauga, Canada (Shared after registration)</p>
+    <p><strong>Lunch:</strong> Included Daily</p>
+    <p><strong>Gift:</strong> Goodie Bag worth $200 at Completion</p>
+    <p><strong>Practice:</strong> Bring Your Models (Days 2–6)</p>
+    <p><strong>Kit:</strong> Bring Your Makeup vanity (List Provided After Sign-Up)</p>
+  </section>
+
+  <section class="highlight">
+    <h2 class="section-title">💰 Fee Structure</h2>
+    <p><strong>Total Fee:</strong> $1000 CAD</p>
+    <p><strong>Secure Your Spot:</strong> $300 Deposit</p>
+    <p><strong>Payment:</strong> Remainder via Cash or E-Transfer</p>
+    <p><strong>Limited Seats:</strong> Max 5 Students Only – for focused, personalised learning</p>
+  </section>
+
+  <section id="gallery">
+    <h2 class="section-title">📸 Makeup Gallery</h2>
+    <div class="gallery">
+      <img src="https://wallpaperaccess.com/full/2090351.jpg" alt="Natural Glam Look" />
+      <img src="https://tse4.mm.bing.net/th?id=OIP.wHCYaoMgGnQ_Z598klWmmgHaHa&pid=Api&P=0&h=180" alt="Eyeshadow Close-Up" />
+      <img src="https://wallpapercave.com/wp/wp9756475.jpg" alt="Makeup Tools" />
+      <img src="https://tse3.mm.bing.net/th?id=OIP.4OMZiFY0Kj3eR1E8wnudLAHaHa&pid=Api&P=0&h=180" alt="Bold Lip Look" />
+    </div>
+  </section>
+
+  <div class="footer-cta">
+    <h2>📲 Ready to Begin Your Makeup Journey?</h2>
+    <p>Click below to reserve your seat. Limited spots available!</p>
+    <button>Reserve Your Spot Now</button>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("navLinks").classList.toggle("active");
+    }
+  </script>
+
+</body>
+</html>
