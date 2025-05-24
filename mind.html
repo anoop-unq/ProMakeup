@@ -1,311 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Pro Makeup One-on-One Mastercourse – Toronto</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pro Makeup Menu</title>
   <style>
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', sans-serif;
-      scroll-behavior: smooth;
     }
 
     body {
-      background-color: #fffafc;
-      color: #333;
-      line-height: 1.6;
-    }
-
-    nav {
-      background: #fff0f6;
-      padding: 15px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 999;
-    }
-
-    nav h2 {
-      color: #cc147a;
-    }
-
-    .menu {
-      display: flex;
-      gap: 20px;
-    }
-
-    .menu a {
-      text-decoration: none;
-      color: #cc147a;
-      font-weight: bold;
-      transition: color 0.3s ease;
-    }
-
-    .menu a:hover {
-      color: #a40e64;
-    }
-
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-    }
-
-    .hamburger div {
-      width: 25px;
-      height: 3px;
-      background-color: #cc147a;
-      margin: 4px 0;
-      transition: all 0.3s ease;
-    }
-
-    header {
-      background: #fff0f6;
-      padding: 60px 20px 40px;
-      text-align: center;
-    }
-
-    header h1 {
-      font-size: 2.5rem;
-      color: #cc147a;
-      margin-bottom: 10px;
-    }
-
-    header p {
-      font-size: 1.1rem;
-      max-width: 600px;
-      margin: 10px auto;
-    }
-
-    .cta, .footer-cta button {
-      background: #cc147a;
-      color: white;
-      padding: 12px 25px;
-      border: none;
-      border-radius: 25px;
-      font-size: 1rem;
-      margin-top: 20px;
-      cursor: pointer;
+      font-family: 'Segoe UI', sans-serif;
       transition: all 0.3s ease-in-out;
     }
 
-    .cta:hover,
-    .footer-cta button:hover {
-      background-color: #a40e64;
-      transform: scale(1.05);
-    }
-
-    section {
-      padding: 40px 20px;
-      max-width: 900px;
-      margin: auto;
-    }
-
-    .section-title {
-      color: #cc147a;
-      font-size: 1.8rem;
-      margin-bottom: 20px;
-      border-bottom: 2px solid #fcd6e8;
-      display: inline-block;
-      padding-bottom: 5px;
-    }
-
-    ul {
-      list-style-type: "🎯 ";
-      margin-left: 20px;
-    }
-
-    .highlight {
-      background: #fff0f6;
-      padding: 20px;
-      border-radius: 10px;
-      margin-top: 20px;
-      box-shadow: 0 0 0 transparent;
-      transition: box-shadow 0.3s ease;
-    }
-
-    .highlight:hover {
-      box-shadow: 0 8px 16px rgba(204, 20, 122, 0.2);
-    }
-
-    .profile {
-      margin: 30px auto;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-      gap: 20px;
-    }
-
-    .profile img {
-      width: 150px;
-      height: 150px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 3px solid #cc147a;
-      transition: transform 0.7s ease;
-    }
-
-    .profile img:hover {
-      transform: scale(1.1);
-    }
-
-    .profile-info {
-      font-size: 1rem;
-    }
-
-    .services {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-around;
-      gap: 30px;
-      animation: fadeIn 1.5s ease-in-out;
-    }
-
-    .service {
-      flex: 1 1 250px;
-      background: #fff0f6;
-      padding: 20px;
-      border-radius: 15px;
-      box-shadow: 0 5px 10px rgba(0,0,0,0.05);
-      transition: transform 0.3s ease;
-    }
-
-    .service:hover {
-      transform: translateY(-5px);
-    }
-
-    @keyframes fadeIn {
-      0% { opacity: 0; transform: translateY(30px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-
-    .footer-cta {
-      background: #cc147a;
+    nav#navbar {
+      background-color: #222;
       color: white;
-      text-align: center;
-      padding: 30px 20px;
-      margin-top: 40px;
-      border-radius: 20px;
-      margin-bottom: 25px;
-      transition: transform 0.3s ease;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      z-index: 10;
     }
 
-    .footer-cta:hover {
-      transform: translateY(-3px);
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
     }
 
-    @media(max-width: 768px) {
-      .menu {
+    .menu-toggle {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    .menu-icon, .close-icon {
+      display: inline;
+    }
+
+    .close-icon {
+      display: none;
+    }
+
+    .nav-links {
+      background-color: #333;
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.5s ease;
+      display: flex;
+      flex-direction: column;
+      padding-left: 1rem;
+    }
+
+    .nav-links a {
+      color: white;
+      padding: 1rem 0;
+      text-decoration: none;
+      border-bottom: 1px solid #444;
+    }
+
+    .nav-links a:hover {
+      background-color: #444;
+    }
+
+    .nav-open .nav-links {
+      max-height: 500px; /* Enough space for all links */
+    }
+
+    .main-client_section {
+      background-color: #f4f4f4;
+      transition: margin-top 0.5s ease;
+      padding: 2rem;
+    }
+
+    .main-client_section img {
+      width: 100%;
+      max-width: 400px;
+      display: block;
+      margin: 0 auto;
+    }
+
+    /* Optional: Responsive for larger screens */
+    @media (min-width: 768px) {
+      .nav-links {
+        flex-direction: row;
+        max-height: none;
+        height: auto;
+        background: none;
+        padding-left: 0;
+      }
+
+      .nav-links a {
+        padding: 0 1rem;
+        border: none;
+      }
+
+      .menu-toggle {
         display: none;
-        flex-direction: column;
-        gap: 10px;
-        background: #fff0f6;
-        padding: 15px;
-        border-radius: 10px;
-        position: absolute;
-        top: 60px;
-        right: 20px;
-        width: 200px;
-      }
-
-      .menu.active {
-        display: flex;
-      }
-
-      .hamburger {
-        display: flex;
       }
     }
   </style>
 </head>
 <body>
 
-  <nav>
-    <h2>Makeup Pro</h2>
-    <div class="menu" id="navMenu">
-      <a href="#learn">Learn</a>
-      <a href="#services">Services</a>
-      <a href="#fees">Fees</a>
-      <a href="#contact">Contact</a>
-    </div>
-    <div class="hamburger" onclick="toggleMenu()">
-      <div></div>
-      <div></div>
-      <div></div>
+  <nav id="navbar">
+    <div class="logo">PRO MAKEUP</div>
+    <button class="menu-toggle" onclick="toggleMenu()">
+      <span class="menu-icon">☰</span>
+      <span class="close-icon">✖</span>
+    </button>
+    <div class="nav-links" id="navLinks">
+      <a href="#learn" onclick="closeMenu()">You Learn</a>
+      <a href="#services" onclick="closeMenu()">Services</a>
+      <a href="#gallery" onclick="closeMenu()">Gallery</a>
+      <a href="#testimonials" onclick="closeMenu()">Reviews</a>
     </div>
   </nav>
 
-  <header>
-    <h1>🌟 PRO MAKEUP ONE-ON-ONE MASTERCOURSE – TORONTO</h1>
-    <p>No experience? No problem. Start your pro makeup journey here.<br><strong>June 21–26</strong></p>
-    <button class="cta">ENROL NOW</button>
-    <p>Each class costs less than your Sephora haul – but teaches you how to use all those products. Transform your passion into a profession.</p>
-  </header>
-
-  <section id="learn">
-    <h2 class="section-title">What You’ll Learn</h2>
-    <ul>
-      <li>Signature Soft Glam makeup look</li>
-      <li>Bridal Makeup (Soft + Traditional)</li>
-      <li>Cocktail & Reception Glam</li>
-      <li>Colorful Mehendi Look</li>
-      <li>Mature Skin Techniques</li>
-      <li>Lighting, Photography, & Social Media</li>
-    </ul>
-  </section>
-
-  <section class="profile">
-    <img src="https://www.thelist.com/img/gallery/the-drugstore-powder-that-celebrity-makeup-artists-swear-by/l-intro-1622135749.jpg" alt="Makeup Artist Photo" />
-    <div class="profile-info">
-      <h3>Subtle Glam Artist</h3>
-      <p>💄 4+ years of bridal experience<br>
-         💕 500+ faces dolled<br>
-         🌍 International Artist<br>
-         🎓 Certified by IPGlitz & Leena Bhushan</p>
+  <div class="main-client_section" id="clientSection">
+    <div class="client_Section">
+      <img src="client_img1.jpg" class="client_img1" alt="Client">
     </div>
-  </section>
-
-  <section id="services">
-    <h2 class="section-title">✨ Services Offered</h2>
-    <div class="services">
-      <div class="service">
-        <h3>Personal Makeup Classes</h3>
-        <p>Learn tailored techniques for your unique style and features.</p>
-      </div>
-      <div class="service">
-        <h3>Bridal Makeup</h3>
-        <p>Soft glam, traditional, or bold bridal looks for your big day.</p>
-      </div>
-      <div class="service">
-        <h3>Event Glam</h3>
-        <p>Perfect looks for Mehendi, Sangeet, Receptions, and more.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="fees" class="highlight">
-    <h2 class="section-title">💰 Fee Structure</h2>
-    <p><strong>Total Fee:</strong> $1000 CAD</p>
-    <p><strong>Deposit:</strong> $300 to secure your spot</p>
-    <p><strong>Payment:</strong> Remainder by Cash/E-Transfer</p>
-    <p><strong>Seats:</strong> Only 5 for focused learning</p>
-  </section>
-
-  <div class="footer-cta" id="contact">
-    <h2>📲 Ready to Begin Your Makeup Journey?</h2>
-    <p>Click below to reserve your seat. Limited spots available!</p>
-    <button>Reserve Your Spot Now</button>
   </div>
 
   <script>
+    const nav = document.getElementById('navbar');
+    const navLinks = document.getElementById('navLinks');
+    const menuToggle = document.querySelector('.menu-toggle');
+    const menuIcon = document.querySelector('.menu-icon');
+    const closeIcon = document.querySelector('.close-icon');
+    const clientSection = document.getElementById('clientSection');
+
     function toggleMenu() {
-      document.getElementById("navMenu").classList.toggle("active");
+      nav.classList.toggle('nav-open');
+
+      if (nav.classList.contains('nav-open')) {
+        menuIcon.style.display = 'none';
+        closeIcon.style.display = 'inline';
+        clientSection.style.marginTop = navLinks.scrollHeight + 'px';
+      } else {
+        menuIcon.style.display = 'inline';
+        closeIcon.style.display = 'none';
+        clientSection.style.marginTop = '0';
+      }
+    }
+
+    function closeMenu() {
+      nav.classList.remove('nav-open');
+      menuIcon.style.display = 'inline';
+      closeIcon.style.display = 'none';
+      clientSection.style.marginTop = '0';
     }
   </script>
 

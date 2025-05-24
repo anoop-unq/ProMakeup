@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Uber Clone</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="sky.css">
 </head>
 <body>
@@ -28,13 +29,24 @@
     </div>
   </div>
   <header class="course-header">
-    <div class="text-wlwcome">Welcome to </div>
-  <h1>🌟 PRO MAKEUP ONE-ON-ONE MASTERCOURSE – TORONTO</h1>
+    <div class="welcome-section">
+  <p class="welcome-tagline">✨ Welcome to</p>
+</div>
+  <div class="pro-life">
+    <h1 class="pro-head">
+ <svg class="star-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#f1d015" viewBox="0 0 24 24">
+    <path d="M12 2l2.9 6.9 7.1 1.1-5.2 5.1 1.3 7.1L12 18.6 5.9 22l1.3-7.1L2 9.9l7.1-1.1z"/>
+  </svg>
+  PRO MAKEUP ONE-ON-ONE MASTERCOURSE – TORONTO
+  </h1>
+</div>
+
   <p class="subheading">
     Each class costs less than your Sephora haul — but teaches you how to use all those products.<br>
     No experience? No problem. Start your pro makeup journey here. <strong>June 21–26</strong>
   </p>
   <button class="cta">ENROL NOW</button>
+
   <p class="description">
     Transform your passion into a profession. This 6-day intensive course is perfect for beginners in Toronto looking to step into the world of professional makeup artistry.
   </p>
@@ -59,7 +71,7 @@
         <p>Mature Skin Techniques</p>
     </div>
     <div class="service-item">
-        <p>Bonus: Lighting, Photography, & Social Media for Makeup Artists</p>
+        <p class="bonus">Bonus: Lighting, Photography, & Social Media for Makeup Artists</p>
     </div>
 </div>
 
@@ -76,50 +88,57 @@
   </section>
 
   <section id="services">
-    <h2 class="section-title">💁‍♀️ Services Offered</h2>
-   <div class="what">
-    <ul>
-       
-      <li class="last">Bridal & Party Makeup</li>
-      <li class="last">Makeup Trial Sessions</li>
-      <li class="last">Product Recommendations & Kit Setup</li>
-      <li class="last">1-on-1 Personalized Makeup Coaching</li>
-      </div>
-    </ul>
-  </section>
+   <section class="services-section">
+  <h2 class="section-titleE1">💁‍♀️ Services Offered</h2>
+  <div class="services-cards">
+    <div class="service-card">Bridal & Party Makeup</div>
+    <div class="service-card">Makeup Trial Sessions</div>
+    <div class="service-card">Product Recommendations & Kit Setup</div>
+    <div class="service-card">1-on-1 Personalized Makeup Coaching</div>
+  </div>
 
+  </section>
+</section>
   <section class="highlight">
     <h2 class="section-title">📅 Course Details</h2>
-    <div class="card-home">
+    <div class="course-highlights">
+  <div class="highlight-grid">
 
-<div class="cards-container">
+    <div class="highlight-card">
+      <p><strong>⏳ Duration:</strong><br> 6 Intensive Days of Training</p>
+    </div>
 
-    <div class="card">
-        <p><strong>Duration :</strong> 6 Days</p>
+    <div class="highlight-card">
+      <p><strong>🕗 Timings:</strong><br> 8 Hours Per Day of Hands-On Learning</p>
     </div>
-    <div class="card">
-        <p><strong>Timings :</strong> 8 Hours Daily</p>
+
+    <div class="highlight-card">
+      <p><strong>📅 Course Dates:</strong><br> June 21 – June 26, 2025</p>
     </div>
-    <div class="card">
-        <p><strong>Dates:</strong> June 21 – June 26</p>
+
+    <div class="highlight-card">
+      <p><strong>📍 Location:</strong><br> Mississauga, Canada<br><small>(Exact location shared upon registration)</small></p>
     </div>
-    <div class="card">
-        <p><strong>Location:</strong> Mississauga, Canada (Shared after registration)</p>
+
+    <div class="highlight-card">
+      <p><strong>🍽️ Lunch Provided:</strong><br> Enjoy Complimentary Meals Daily</p>
     </div>
-    <div class="card">
-        <p><strong>Lunch:</strong> Included Daily</p>
+
+    <div class="highlight-card">
+      <p><strong>🎁 Exclusive Gift:</strong><br> Receive a Luxury Goodie Bag Worth $200</p>
     </div>
-    <div class="card">
-        <p><strong>Gift:</strong> Goodie Bag worth $200 at Completion</p>
+
+    <div class="highlight-card">
+      <p><strong>💄 Live Practice:</strong><br> Work with Your Own Models (Day 2 to 6)</p>
     </div>
-    <div class="card">
-        <p><strong>Practice:</strong> Bring Your Models (Days 2–6)</p>
+
+    <div class="highlight-card">
+      <p><strong>🧰 Kit Requirements:</strong><br> Bring Your Makeup Vanity<br><small>(Checklist provided post sign-up)</small></p>
     </div>
-    <div class="card">
-        <p><strong>Kit:</strong> Bring Your Makeup vanity (List Provided After Sign-Up)</p>
-    </div>
-    </div>
-    </div>
+
+  </div>
+</div>
+
   </section>
 
   <section class="highlight">
@@ -315,7 +334,17 @@
   
         mainSection.classList.remove("move-down");
     }
-    
+    let menu_icon = document.querySelector(".menu-icon")
+    menu_icon.addEventListener("click",()=>{
+      let main_client = document.querySelector(".client_Section");
+      main_client.classList.add("topness")
+    })
+
+     let close_icon = document.querySelector(".close-icon")
+      close_icon.addEventListener("click",()=>{
+      let main_client = document.querySelector(".client_Section");
+      main_client.classList.remove("topness")
+    })
   </script>
 
 </body>
